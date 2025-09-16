@@ -1,4 +1,4 @@
-#### Comment
+#### Comment :D
 Use `/*` and `*/` for multi-line comments
 
 #### Variables
