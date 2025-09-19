@@ -1,13 +1,12 @@
 #include <iostream>
 #include <cmath>
+#include <string>
 using namespace std;
-void changeValue(int &num){
-    num = 10;
-}
+
 
 int main(){
-    int a = 5;
-    changeValue(a);
-    cout<<a;
+    string s="ABCDE";
+    cout<<s.find('D')<<endl;
+    cout<<(s.find('X')==string::npos);
     return 0;
 }

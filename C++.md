@@ -1,4 +1,4 @@
-#### Comment :D
+#### Comment
 Use `/*` and `*/` for multi-line comments
 
 #### Variables
@@ -33,17 +33,28 @@ To create a string via a letter in a string, we need to change its type:
 ```C++
 string str2 = string(1,str1[0]); //1 means one copy of the char
 ```
-Or int to string
+int to string
 ```C++
 string s = to_string(1);
 ```
+string to int
+```C++
+string s = "123456";
+int i = stoi(s);
+```
 substr
 - Single parameter: from that letter to the last
-- Double parameter: between those two letters
+- Double parameter: from that letter, length
 ```C++
 for (int j=0;j<=a.length();j++){
 	newA.insert(a.substr(0,j)+s[i]+a.substr(j));
 }
+```
+Finding an instance of a character
+```C++
+string s="ABCDE";
+cout<<s.find('D'); //3
+cout<<(s.find('X')==string::npos); //1 ie True
 ```
 
 #### Cin
