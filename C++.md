@@ -33,6 +33,10 @@ To create a string via a letter in a string, we need to change its type:
 ```C++
 string str2 = string(1,str1[0]); //1 means one copy of the char
 ```
+Or int to string
+```C++
+string s = to_string(1);
+```
 substr
 - Single parameter: from that letter to the last
 - Double parameter: between those two letters
