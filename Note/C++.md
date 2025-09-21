@@ -209,6 +209,7 @@ Set automatically deletes duplicates
 set<string> S;
 S.insert("Hi");
 cout<<S.size();
+cout<<S.count("Hi); //1
 ```
 
 #### Bitset

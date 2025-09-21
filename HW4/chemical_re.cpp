@@ -1,11 +1,9 @@
 #include <iostream>
 #include <string>
-#include <unordered_set>
 #include <vector>
+#include <set>
 using namespace std;
-
-// Set of all element symbols in lowercase
-unordered_set<string> elements = {
+set<string> elements = {
     "h","he","li","be","b","c","n","o","f","ne","na","mg","al","si","p","s","cl","ar","k","ca","sc","ti","v","cr","mn","fe",
     "co","ni","cu","zn","ga","ge","as","se","br","kr","rb","sr","y","zr","nb","mo","tc","ru","rh","pd","ag","cd","in",
     "sn","sb","te","i","xe","cs","ba","la","ce","pr","nd","pm","sm","eu","gd","tb","dy","ho","er","tm","yb","lu","hf",
@@ -17,42 +15,39 @@ string word;
 vector<string> solution;
 bool found = false;
 
-void dfs(int idx) {
-    if (found) return; // stop when solution is found
-    if (idx == (int)word.size()) {
-        // reached end, print solution
-        for (auto &s : solution) cout << "[" << s << "]";
-        cout << "\n";
-        found = true;
+void dfs(int i){
+    if (found){
         return;
     }
-    // try 1 letter
-    if (idx + 1 <= (int)word.size()) {
-        string one = word.substr(idx, 1);
-        if (elements.count(one)) {
+    if (i==word.length()){
+        found = true;
+        for (string c: solution){
+            cout<<"["<<c<<"]";
+        }
+        return;
+    }
+
+    if (i+1<=word.length()){
+        string one = word.substr(i,1);
+        if (elements.count(one)){
             solution.push_back(one);
-            dfs(idx + 1);
+            dfs(i+1);
             solution.pop_back();
         }
     }
-    // try 2 letters
-    if (idx + 2 <= (int)word.size()) {
-        string two = word.substr(idx, 2);
-        if (elements.count(two)) {
+    if (i+2<=word.length()){
+        string two = word.substr(i,2);
+        if (elements.count(two)){
             solution.push_back(two);
-            dfs(idx + 2);
+            dfs(i+2);
             solution.pop_back();
         }
     }
+
 }
 
-int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
-
-    if (!(cin >> word)) return 0;
-
+int main(){
+    cin>>word;
     dfs(0);
-
     return 0;
 }
